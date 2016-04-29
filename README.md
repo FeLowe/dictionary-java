@@ -6,7 +6,7 @@
 
 ## Description
 
-This webpage let users create their own dictionary. First user creates a word,  then its definition. The homepage lists out all of the words that have been created, and let the user click on them to view all of their definitions. A user should be able to add a word, and when viewing a word, be able to add one or more definitions.
+This webpage let users create their own dictionary. First user creates a word,  then its definition. The homepage lists out all of the words that have been created, and let the user click on them to view its definition. A user can add a word, and when viewing a such, will also be able to add one or more definitions.
 
 ## Setup/Installation Requirements
 

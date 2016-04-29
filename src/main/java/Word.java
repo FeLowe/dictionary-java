@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
-public class Word {
+public class Word{
 
+  public Word () {
+
+  }
 }

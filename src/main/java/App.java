@@ -10,15 +10,15 @@ public class App {
   public static void main(String[] args) {
 
     // //HEROKU//
-    ProcessBuilder process = new ProcessBuilder();
-    Integer port;
-    if (process.environment().get("PORT") != null) {
-      port = Integer.parseInt(process.environment().get("PORT"));
-    } else {
-      port = 4567;
-    }
-
-    setPort(port);
+    // ProcessBuilder process = new ProcessBuilder();
+    // Integer port;
+    // if (process.environment().get("PORT") != null) {
+    //   port = Integer.parseInt(process.environment().get("PORT"));
+    // } else {
+    //   port = 4567;
+    // }
+    //
+    // setPort(port);
 
 
     staticFileLocation("/public");
@@ -27,8 +27,28 @@ public class App {
     // // GET - displays form
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("words", request.session().attribute("words"));
       model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/words/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/word-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/words", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("words", Word.all());
+      model.put("template", "templates/allwords.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/words/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("word", word);
+      model.put("template", "templates/word.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -36,15 +56,8 @@ public class App {
     post("/words", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
 
-      ArrayList<Word> allWordsString = request.session().attribute("words");
-      if (allWordsString == null){
-        allWordsString = new ArrayList<Word>();
-        request.session().attribute("words", allWordsString);
-      }
-
       String userWord = request.queryParams("word");
       Word newWord = new Word(userWord);
-      allWordsString.add(newWord);
 
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);

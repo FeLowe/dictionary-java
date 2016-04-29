@@ -8,6 +8,11 @@ public class Word{
     mWord = word;
     allWords.add(this);
 
+
+  public Word (String word) {
+    mWord = word;
+
+
   }
 public String getWord(){
   return mWord;

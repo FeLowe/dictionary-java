@@ -1,6 +1,7 @@
 <h1>My Dictionary</h1>
 <h3>My Words</h3>
 
+
 #if ($words)
 <ul>
   #foreach($word in $words)
@@ -10,7 +11,6 @@
 #else
 <p>No words yet!</p>
 #end
-
 
 <form action="/words" method="post">
   <label for="word">Add a new word:</label>

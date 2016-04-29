@@ -33,9 +33,18 @@ public class DefinitionTest {
       assertEquals(Definition.all().size(), 0);
   }
     @Test
-    public void getId_definitionsInstantiateWithAnId_1() {
+    public void getId_definitionInstantiateWithAnId_1() {
     Definition testDefinition = new Definition("The place where one lives permanently");
     assertEquals(1, testDefinition.getId());
   }
-
-}
+    @Test
+    public void find_returnsDefinitionWithSameId_secondDefinition() {
+      Definition firstDefinition = new Definition("The place where one lives permanently");
+      Definition secondDefinition = new Definition("An institution for educating children.");
+      assertEquals(Definition.find(secondDefinition.getId()), secondDefinition);
+    }
+    @Test
+    public void find_returnsNullWhenNoDefinitionFound_null() {
+      assertTrue(Definition.find(999) == null);
+    }
+}    

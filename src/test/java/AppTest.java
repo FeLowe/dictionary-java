@@ -27,19 +27,18 @@ public class AppTest extends FluentTest {
   @Test
   public void wordIsCreatedTest() {
     goTo("http://localhost:4567/");
-    fill("#word").with("home");
+    fill("#word").with("Home");
     submit(".btn");
     assertThat(pageSource()).contains("Your word has been saved.");
   }
-  // }
-//   @Test
-//     public void categoryIsDisplayedTest() {
-//     goTo("http://localhost:4567/categories/new");
-//     fill("#name").with("Household chores");
-//     submit(".btn");
-//     click("a", withText("All categories"));
-//     assertThat(pageSource()).contains("Household chores");
-//     }
+  @Test
+    public void wordIsDisplayedTest() {
+      goTo("http://localhost:4567/");
+      fill("#word").with("Home");
+      submit(".btn");
+      click("a", withText("Go Back"));
+      assertThat(pageSource()).contains("Home");
+    }
 //
 //     @Test
 //       public void twoCategoriesIsDisplayedTest() {

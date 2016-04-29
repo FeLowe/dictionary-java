@@ -1,10 +1,15 @@
 <h1>My Dictionary</h1>
+<h3>My Words</h3>
 
-<p>Add a new word:</p>
+#if ($word)
+  <p>$word.getWord()</p>
+#else
+<p>No words yet!</p>
+#end
 
-<form action="/postmethod" method="post">
-  <label for="word">Task Description</label>
-  <input id="word" name="word" type="text">
+<form action="/words" method="post">
+  <label for="word">Add a new word:</label>
+  <input id="word" name="word" type="text" placeholder="Type your word here">
 
-  <button type="submit" class="btn btn-success">Add word</button>
+  <button type="submit" class="btn btn-success">Add Word</button>
 </form>

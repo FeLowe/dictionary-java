@@ -31,5 +31,15 @@ public class App {
 
 
     //POST - process form
+    post("/postmethod", (request, response) -> {
+     Map<String, Object> model = new HashMap<String, Object>();
+
+     String userWord = request.queryParams("word");
+     Word newWord = new Word(userWord);
+     request.session().attribute("word", newWord);
+
+     model.put("template", "templates/success.vtl");
+     return new ModelAndView(model, layout);
+   }, new VelocityTemplateEngine());
   }
 }

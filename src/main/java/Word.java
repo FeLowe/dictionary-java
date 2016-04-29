@@ -2,7 +2,9 @@ import java.util.ArrayList;
 
 public class Word{
 
-  public Word () {
+  public Word (String word) {
 
   }
+
+  
 }

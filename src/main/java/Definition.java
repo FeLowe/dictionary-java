@@ -35,4 +35,7 @@ public class Definition {
    public ArrayList<Word> getWords(){
      return mWords;
    }
+  public void addWord(Word word){
+    mWords.add(word);
+  }
 }

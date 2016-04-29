@@ -52,4 +52,11 @@ public class DefinitionTest {
       Definition testDefinition = new Definition("The place where one lives permanently");
       assertEquals(0, testDefinition.getWords().size());
     }
+    @Test
+    public void addWord_addsWordToList_true() {
+      Definition testDefinition = new Definition("The place where one lives permanently");
+      Word testWord = new Word("Home");
+      testDefinition.addWord(testWord);
+      assertTrue(testDefinition.getWords().contains(testWord));
+    }
 }

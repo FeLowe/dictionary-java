@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 public class WordTest {
+
   @Test
   public void oneWord_instantiatesCorrectly_true() {
     Word testWord = new Word("Home");

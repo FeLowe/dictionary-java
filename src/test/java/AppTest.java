@@ -21,17 +21,16 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("Create your own Dictionary");
+    assertThat(pageSource()).contains("My Dictionary");
 
   }
-
-  // @Test
-  // public void categoryIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Add a New Category"));
-  //   fill("#name").with("Household chores");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Your category has been saved.");
+  @Test
+  public void wordIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    fill("#word").with("home");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your word has been saved.");
+  }
   // }
 //   @Test
 //     public void categoryIsDisplayedTest() {

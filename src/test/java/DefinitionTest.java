@@ -50,6 +50,6 @@ public class DefinitionTest {
     @Test
     public void getWords_initiallyReturnsEmptyList_ArrayList() {
       Definition testDefinition = new Definition("The place where one lives permanently");
-      assertEquals(0, testDefinition.getTasks().size());
-    }    
+      assertEquals(0, testDefinition.getWords().size());
+    }
 }

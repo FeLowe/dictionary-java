@@ -4,11 +4,13 @@ public class Definition {
   private String mDefinition;
   private static ArrayList<Definition> allDefinitions = new ArrayList<Definition>();
   private int mId;
+  private ArrayList<Word> mWords;
 
   public Definition(String definition) {
     mDefinition = definition;
     allDefinitions.add(this);
     mId = allDefinitions.size();
+    mWords = new ArrayList<Word>();
 
   }
   public String getDefinition(){
@@ -30,5 +32,7 @@ public class Definition {
        return null;
      }
    }
-
+   public ArrayList<Word> getWords(){
+     return mWords;
+   }
 }

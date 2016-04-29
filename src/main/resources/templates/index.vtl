@@ -1,11 +1,16 @@
 <h1>My Dictionary</h1>
 <h3>My Words</h3>
 
-#if ($word)
-  <p>$word.getWord()</p>
+#if ($words)
+<ul>
+  #foreach($word in $words)
+  <li>$word.getWord()</li>
+  #end
+  </ul>
 #else
 <p>No words yet!</p>
 #end
+
 
 <form action="/words" method="post">
   <label for="word">Add a new word:</label>

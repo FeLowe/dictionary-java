@@ -25,6 +25,7 @@ public class App {
     // // GET - displays form
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      model.put("word", request.session().attribute("word"));
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -43,11 +44,11 @@ public class App {
     }, new VelocityTemplateEngine());
 
     // // GET - displays form
-    get("/", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      model.put("word", request.session().attribute("word"));
-      model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    // get("/", (request, response) -> {
+    //   Map<String, Object> model = new HashMap<String, Object>();
+    //   model.put("word", request.session().attribute("word"));
+    //   model.put("template", "templates/index.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
   }
 }

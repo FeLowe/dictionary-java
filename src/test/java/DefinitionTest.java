@@ -47,4 +47,9 @@ public class DefinitionTest {
     public void find_returnsNullWhenNoDefinitionFound_null() {
       assertTrue(Definition.find(999) == null);
     }
-}    
+    @Test
+    public void getWords_initiallyReturnsEmptyList_ArrayList() {
+      Definition testDefinition = new Definition("The place where one lives permanently");
+      assertEquals(0, testDefinition.getTasks().size());
+    }    
+}

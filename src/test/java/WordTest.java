@@ -9,15 +9,11 @@ public class WordTest {
     assertEquals(true, testWord instanceof Word);
   }
 
-
-
-
-//
-//   @Test
-//   public void Word_instantiatesWithWord_String() {
-//       Word testWord = new Word("Home");
-//     assertEquals("Home", testWord.getWord());
-//   }
+  @Test
+  public void Word_instantiatesWithAWord_String() {
+      Word testWord = new Word("Home");
+    assertEquals("Home", testWord.getWord());
+  }
 // //
 //   @Test
 //   public void allWords_returnsAllInstancesOfWord_true() {

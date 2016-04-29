@@ -39,45 +39,19 @@ public class AppTest extends FluentTest {
       click("a", withText("Go Back"));
       assertThat(pageSource()).contains("Home");
     }
-//
-//     @Test
-//       public void twoCategoriesIsDisplayedTest() {
-//       goTo("http://localhost:4567/categories/new");
-//       fill("#name").with("Household chores");
-//       submit(".btn");
-//       click("a", withText("All categories"));
-//       click("a", withText("Add New category"));
-//       fill("#name").with("Outside chores");
-//       submit(".btn");
-//       click("a", withText("All categories"));
-//       assertThat(pageSource()).contains("Household chores");
-//       assertThat(pageSource()).contains("Outside chores");
-//       }
-//
-//       @Test
-//       public void categoryShowPageDisplaysName() {
-//         goTo("http://localhost:4567/categories/new");
-//         fill("#name").with("Household chores");
-//         submit(".btn");
-//         click("a", withText("All categories"));
-//         click("a", withText("Household chores"));
-//         assertThat(pageSource()).contains("Household chores");
-//       }
-//
-//     @Test
-//     public void categoryTasksFormIsDisplayed() {
-//       goTo("http://localhost:4567/categories/new");
-//       fill("#name").with("Shopping");
-//       submit(".btn");
-//       click("a", withText("All categories"));
-//       click("a", withText("Shopping"));
-//       click("a", withText("Add a new task"));
-//       assertThat(pageSource()).contains("Add a task to Shopping");
-//     }
-//
-//
-//
-//
+
+   @Test
+  public void multipleWordsAreDisplayedTest() {
+    goTo("http://localhost:4567/");
+    fill("#word").with("Home");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    fill("#word").with("Friendship");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    assertThat(pageSource()).contains("Home");
+    assertThat(pageSource()).contains("Friendship");
+  }
 //
 //
 }

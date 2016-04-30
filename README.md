@@ -1,6 +1,6 @@
 # Week 2: Java - Object Oriented (OO) independent project
 
-#### Dictionary Application, 04/29/2016.
+#### My Dictionary, 04/29/2016.
 
 #### By Fernanda Lowe
 
@@ -10,13 +10,17 @@ This webpage let users create their own dictionary. First user creates a word,  
 
 ## Setup/Installation Requirements
 
-* Access the webpage
+* Access the webpage at https://fierce-badlands-21831.herokuapp.com/
+* Click on the "Add a new word" link
 * Type in a word;
-* Click on the "create word!"button
+* Click on the "add word"
+* Click on  "view words"button
+* Click on the "word" you would like to add a definition
+* Click on the "add a definition!" link
 * Type in the word's definition
-* Click on the "create definition!"button
-* Click on "view all words" to view word list;
-* Click on a word to view its definition;
+* Click on the "add a definition!" button
+* Click on "View words" to view your word list
+* Click on a word itself to view its definition
 * Click on "add another word" at anytime to add another word and its definition
 
 ## Known Bugs

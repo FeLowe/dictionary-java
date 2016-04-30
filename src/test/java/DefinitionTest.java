@@ -47,16 +47,5 @@ public class DefinitionTest {
     public void find_returnsNullWhenNoDefinitionFound_null() {
       assertTrue(Definition.find(999) == null);
     }
-    @Test
-    public void getWords_initiallyReturnsEmptyList_ArrayList() {
-      Definition testDefinition = new Definition("The place where one lives permanently");
-      assertEquals(0, testDefinition.getWords().size());
-    }
-    @Test
-    public void addWord_addsWordToList_true() {
-      Definition testDefinition = new Definition("The place where one lives permanently");
-      Word testWord = new Word("Home");
-      testDefinition.addWord(testWord);
-      assertTrue(testDefinition.getWords().contains(testWord));
-    }
+
 }

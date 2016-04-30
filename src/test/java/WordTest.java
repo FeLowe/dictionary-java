@@ -3,6 +3,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 public class WordTest {
+  @After
+    public void tearDown() {
+      Word.clear();
+    }
 
   @Test
   public void oneWord_instantiatesCorrectly_true() {
@@ -42,6 +46,18 @@ public class WordTest {
   @Test
   public void find_returnsNullWhenNoWordFound_null() {
     assertTrue(Word.find(999) == null);
+  }
+  @Test
+  public void getDefinitions_initiallyReturnsEmptyList_ArrayList() {
+    Word testWord = new Word("Home");
+    assertEquals(0, testWord.getDefinitions().size());
+  }
+  @Test
+  public void addDefinition_addsDefinitionToList_true() {
+    Word testWord = new Word("Home");
+    Definition testDefinition = new Definition("The place where one lives permanently");
+    testWord.addDefinition(testDefinition);
+    assertTrue(testWord.getDefinitions().contains(testDefinition));
   }
 
 }

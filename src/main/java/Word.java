@@ -4,22 +4,23 @@ public class Word{
   private String mWord;
   private static ArrayList<Word> allWords = new ArrayList<Word>();
   private int mId;
+  private ArrayList<Definition> mDefinitions;
 
   public Word(String word) {
     mWord = word;
     allWords.add(this);
     mId = allWords.size();
-
+    mDefinitions = new ArrayList<Definition>();
   }
-    public String getWord(){
-      return mWord;
-    }
-    public static ArrayList <Word> all(){
-      return allWords;
-    }
-    public static void clear(){
-      allWords.clear();
-    }
+  public String getWord(){
+    return mWord;
+  }
+  public static ArrayList <Word> all(){
+    return allWords;
+  }
+  public static void clear(){
+    allWords.clear();
+  }
 
   public int getId(){
     return mId;
@@ -31,5 +32,11 @@ public class Word{
     } catch (IndexOutOfBoundsException exception) {
       return null;
     }
-  } 
+  }
+  public ArrayList<Definition> getDefinitions(){
+    return mDefinitions;
+  }
+  public void addDefinition(Definition definition){
+    mDefinitions.add(definition);
+  }
 }

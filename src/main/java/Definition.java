@@ -4,14 +4,11 @@ public class Definition {
   private String mDefinition;
   private static ArrayList<Definition> allDefinitions = new ArrayList<Definition>();
   private int mId;
-  private ArrayList<Word> mWords;
 
   public Definition(String definition) {
     mDefinition = definition;
     allDefinitions.add(this);
     mId = allDefinitions.size();
-    mWords = new ArrayList<Word>();
-
   }
   public String getDefinition(){
     return mDefinition;
@@ -20,22 +17,16 @@ public class Definition {
     return allDefinitions;
   }
   public static void clear() {
-  allDefinitions.clear();
+    allDefinitions.clear();
   }
   public int getId(){
     return mId;
   }
   public static Definition find(int id) {
-     try {
-       return allDefinitions.get(id - 1);
-     } catch (IndexOutOfBoundsException e) {
-       return null;
-     }
-   }
-   public ArrayList<Word> getWords(){
-     return mWords;
-   }
-  public void addWord(Word word){
-    mWords.add(word);
+    try {
+      return allDefinitions.get(id - 1);
+    } catch (IndexOutOfBoundsException e) {
+      return null;
+    }
   }
 }

@@ -9,16 +9,16 @@ import java.util.ArrayList;
 public class App {
   public static void main(String[] args) {
 
-    // //HEROKU//
-    // ProcessBuilder process = new ProcessBuilder();
-    // Integer port;
-    // if (process.environment().get("PORT") != null) {
-    //   port = Integer.parseInt(process.environment().get("PORT"));
-    // } else {
-    //   port = 4567;
-    // }
-    //
-    // setPort(port);
+    //HEROKU//
+    ProcessBuilder process = new ProcessBuilder();
+    Integer port;
+    if (process.environment().get("PORT") != null) {
+      port = Integer.parseInt(process.environment().get("PORT"));
+    } else {
+      port = 4567;
+    }
+
+    setPort(port);
 
 
     staticFileLocation("/public");
@@ -31,7 +31,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-  get("/words/new", (request, response) -> {
+    get("/words/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/word-form.vtl");
       return new ModelAndView(model, layout);
@@ -52,6 +52,29 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("words/:id/definitions/new", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word wordInput = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("word", wordInput);
+      model.put("template", "templates/word-definition-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/definitions", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+
+      Word word = Word.find(Integer.parseInt(request.queryParams("wordId")));
+
+      String definition = request.queryParams("definition");
+      Definition newDefinition = new Definition(definition);
+
+      word.addDefinition(newDefinition);
+
+      model.put("word", word);
+      model.put("template", "templates/word-definition-success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     //POST - processes form
     post("/words", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -59,10 +82,9 @@ public class App {
       String userWord = request.queryParams("word");
       Word newWord = new Word(userWord);
 
-      model.put("template", "templates/success.vtl");
+      model.put("template", "templates/word-success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // // GET - displays form
   }
 }
